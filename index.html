@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Asistente Eleven Labs</title>
-    <!-- Carga el widget de Eleven Labs -->
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-    <style>
-      /* Ocupa toda la ventana y quita márgenes */
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Inserta tu agente -->
+<head>
+  <meta charset="UTF-8" />
+  <title>Asistente Eleven Labs</title>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <style>
+    /* Contenedor fijo en esquina inferior derecha */
+    #convai-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;      /* ancho fijo o puedes usar % */
+      height: 400px;     /* altura inicial */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      z-index: 1000;     /* para que flote sobre todo */
+    }
+    /* Hacemos el widget 100% del contenedor */
+    #convai-container elevenlabs-convai {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    /* Quitamos márgenes al body */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenedor flotante -->
+  <div id="convai-container">
     <elevenlabs-convai agent-id="agent_01jzr00tv8f88as3jxwwv5n264"></elevenlabs-convai>
-  </body>
+  </div>
+</body>
 </html>
+
